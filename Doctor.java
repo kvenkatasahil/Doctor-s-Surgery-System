@@ -5,20 +5,23 @@ import java.time.LocalDate;
 import java.util.*;
 public class Doctor {
     static ArrayList D1=new ArrayList();
+    int Doctorid=1;
     String name;
     String designation;
     String specialization;
     String ph_no;
     LocalDate dateofjoin;
 
-    public void add(String name,String designation,String specialization,String ph_no,LocalDate dateofjoin)
+    public void add(String name,String designation,String specialization,String ph_no,LocalDate dateofjoin,int Doctorid)
     {
+        this.Doctorid=Doctorid;
         this.name=name;
         this.designation= designation;
         this.specialization=specialization;
         this.ph_no=ph_no;
         this.dateofjoin=dateofjoin;
 
+        D1.add(Doctorid);
         D1.add(name);
         D1.add(designation);
         D1.add(specialization);
@@ -31,10 +34,10 @@ public class Doctor {
         try
         {
             FileWriter ob1=new FileWriter("Doctors.txt",true);
-            for(int i=0;i< D1.size();i+=5)
+            for(int i=0;i< D1.size();i+=6)
             {
 
-                ob1.write(D1.get(i)+"\n"+D1.get(i+1)+"\n"+D1.get(i+2)+"\n"+D1.get(i+3)+"\n"+D1.get(i+4)+"\n");
+                ob1.write(D1.get(i)+"\n"+D1.get(i+1)+"\n"+D1.get(i+2)+"\n"+D1.get(i+3)+"\n"+D1.get(i+4)+"\n"+D1.get(i+5)+"\n");
             }
             ob1.close();
         }
