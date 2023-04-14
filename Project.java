@@ -36,15 +36,14 @@ public class Project {
         System.out.println("Enter the 4 for Patient data");
         System.out.println("Enter the 5 for Doctor data");
         System.out.println("Enter the 6 for Appointment data");
+        System.out.println("Enter the 7 to check the Patient");
+        System.out.println("Enter the 8 to check the Doctor");
+        System.out.println("Enter the 9 to check the Appointment");
+        System.out.println("Enter the 10 when patient came for another time");
+        System.out.println("Enter the 11 to check the treatment for the patient");
+
         n= kvs.nextInt();
 
-        //Scanner kvs=new Scanner(System.in);
-
-        
-        //Patient p1=new Patient(name,gender,age,ph_no,weight,Doc_relatedto);
-       // Doctor d1=new Doctor(name,designation,specilazation,ph_no);
-
-        
         switch (n){
             case 1: {
                 ReadPatient.read();
@@ -83,7 +82,7 @@ public class Project {
                 ReadAppointment.read();
                 int control_input = 0;
                 Appointment ob1= new Appointment();
-                int Appointmentidt=ReadAppointment.Appointments.size()-5;
+                int Appointmentidt=ReadAppointment.Appointments.size()-6;
                 String Appointmentidl=(String)ReadAppointment.Appointments.get(Appointmentidt);
                 int Appointmentid=Integer.parseInt(Appointmentidl);
                 while (control_input!=1){
@@ -112,7 +111,7 @@ public class Project {
                 ReadDoctor.read();
                 int control_input = 0;
                 Doctor ob1 = new Doctor();
-                int Doctoridt=ReadDoctor.Doctors.size()-7;
+                int Doctoridt=ReadDoctor.Doctors.size()-6;
                 String Doctoridl=(String)ReadDoctor.Doctors.get(Doctoridt);
                 int Doctorid=Integer.parseInt(Doctoridl);
                 while (control_input != 1) {
@@ -185,6 +184,143 @@ public class Project {
                     System.out.println("Disease: "+ReadAppointment.Appointments.get(i+4));
                     System.out.println("Appointment time: "+ReadAppointment.Appointments.get(i+5));
                     System.out.println("----------------------------------------------------------");
+                }
+                break;
+            }
+            case 7: {
+                ReadPatient.read();
+                System.out.println("Enter Patient Id to check");
+                String id = kvs.next();
+                for (int i = 0; i < ReadPatient.Patients.size(); i += 8) {
+                    if (ReadPatient.Patients.get(i).equals(id)==true)
+                    {
+                        System.out.println("Patient Id: " + ReadPatient.Patients.get(i));
+                        System.out.println("Patient Name: " + ReadPatient.Patients.get(i + 1));
+                        System.out.println("Patient Gender: " + ReadPatient.Patients.get(i + 2));
+                        System.out.println("Patient Age: " + ReadPatient.Patients.get(i + 3));
+                        System.out.println("Patient Phone Number: " + ReadPatient.Patients.get(i + 4));
+                        System.out.println("Patient Weight: " + ReadPatient.Patients.get(i + 5));
+                        System.out.println("Patient's Doctor: " + ReadPatient.Patients.get(i + 6));
+                        System.out.println("Patient's Admitted date: " + ReadPatient.Patients.get(i + 7));
+                        System.out.println("----------------------------------------------------------");
+                        break;
+                    }
+                    else {
+
+                        if(i>ReadPatient.Patients.size()-9)
+                    {
+                        System.out.println("Patient not found");
+                        break;
+                    }
+
+                    }
+
+                }
+                break;
+            }
+            case 8: {
+                ReadDoctor.read();
+                System.out.println("Enter Doctor Id to check");
+                String id = kvs.next();
+                for (int i = 0; i < ReadDoctor.Doctors.size(); i += 6){
+                    if (ReadAppointment.Appointments.get(i).equals(id)) {
+                        System.out.println("Doctor Id: " + ReadDoctor.Doctors.get(i));
+                        System.out.println("Doctor Name: " + ReadDoctor.Doctors.get(i + 1));
+                        System.out.println("Doctor Designation: " + ReadDoctor.Doctors.get(i + 2));
+                        System.out.println("Doctor Specialization: " + ReadDoctor.Doctors.get(i + 3));
+                        System.out.println("Doctor Phone Number: " + ReadDoctor.Doctors.get(i + 4));
+                        System.out.println("Doctor Joined Date: " + ReadDoctor.Doctors.get(i + 5));
+                        System.out.println("----------------------------------------------------------");
+                        break;
+                    }
+                    else {
+
+                        if(i>ReadDoctor.Doctors.size()-7)
+                        {
+                            System.out.println("Doctor not found");
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+            case 9:{
+                ReadAppointment.read();
+                System.out.println("Enter Appointment Number to check the appointment");
+                String id = kvs.next();
+                for (int i = 0; i < ReadAppointment.Appointments.size(); i += 6) {
+                    if (ReadAppointment.Appointments.get(i).equals(id)) {
+                        System.out.println("Appointment No. :" + ReadAppointment.Appointments.get(i));
+                        System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
+                        System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
+                        System.out.println("No of Consultations: " + ReadAppointment.Appointments.get(i + 3));
+                        //System.out.println("Appointment Number: "+ReadAppointment.Appointments.get(i+4));
+                        System.out.println("Disease: " + ReadAppointment.Appointments.get(i + 4));
+                        System.out.println("Appointment time: " + ReadAppointment.Appointments.get(i + 5));
+                        System.out.println("----------------------------------------------------------");
+                        break;
+                    }
+                    else {
+                            if(i>ReadAppointment.Appointments.size()-7)
+                            {
+                                System.out.println("Appointment not found");
+                                break;
+                            }
+
+                    }
+                }
+                break;
+            }
+            case 10:
+            {
+                ReadAppointment.read();
+                System.out.println("Enter you appointment id");
+                String id=kvs.next();
+                Delete_Appointment.change(id);
+                break;
+            }
+            case 11:{
+                ReadAppointment.read();
+                System.out.println("Enter Appointment Number to check the Treatment");
+                String id = kvs.next();
+                for (int i = 0; i < ReadAppointment.Appointments.size(); i += 6) {
+                    if (ReadAppointment.Appointments.get(i).equals(id)){
+                        if (ReadAppointment.Appointments.get(i+4).equals("pnemonia")){
+                            System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
+                            System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
+                            System.out.println("No of Consultations: " + ReadAppointment.Appointments.get(i + 3));
+                            System.out.println("Disease: " + ReadAppointment.Appointments.get(i + 4));
+                            System.out.println("Treatment");
+                            System.out.println("Antibiotics prescribed for bacterial pneumonia");
+                            //System.out.println("Antifungal medicines are prescribed for fungal pneumonia");
+                        }
+                        if (ReadAppointment.Appointments.get(i+4).equals("blood pressure")){
+                            System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
+                            System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
+                            System.out.println("No of Consultations: " + ReadAppointment.Appointments.get(i + 3));
+                            System.out.println("Disease: " + ReadAppointment.Appointments.get(i + 4));
+                            System.out.println("Treatment");
+                            System.out.println("Tablet used is Olmezest");
+
+                        }
+                        if (ReadAppointment.Appointments.get(i+4).equals("fever")){
+                            System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
+                            System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
+                            System.out.println("No of Consultations: " + ReadAppointment.Appointments.get(i + 3));
+                            System.out.println("Disease: " + ReadAppointment.Appointments.get(i + 4));
+                            System.out.println("Treatment");
+                            System.out.println("Tablet used is Ofloxacin");
+                            System.out.println("AntiBiotic is used");
+                        }
+                        if (ReadAppointment.Appointments.get(i+4).equals("Headache")){
+                            System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
+                            System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
+                            System.out.println("No of Consultations: " + ReadAppointment.Appointments.get(i + 3));
+                            System.out.println("Disease: " + ReadAppointment.Appointments.get(i + 4));
+                            System.out.println("Treatment");
+                            System.out.println("Tablet used is Saridon");
+                        }
+                    }
                 }
                 break;
             }
