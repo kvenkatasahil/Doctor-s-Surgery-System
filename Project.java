@@ -80,8 +80,12 @@ public class Project {
                     break;
                 }
             case 2:{
+                ReadAppointment.read();
                 int control_input = 0;
                 Appointment ob1= new Appointment();
+                int Appointmentidt=ReadAppointment.Appointments.size()-5;
+                String Appointmentidl=(String)ReadAppointment.Appointments.get(Appointmentidt);
+                int Appointmentid=Integer.parseInt(Appointmentidl);
                 while (control_input!=1){
                     kvs.nextLine();
                     System.out.println("Enter Patient Name");
@@ -91,9 +95,10 @@ public class Project {
                     System.out.println("Enter the Disease");
                     Diseases= kvs.nextLine();
                     noofconsult="1";
-                    Appointment_no="1258463";
+                    //Appointment_no="1258463";
                     LocalTime appoint_time= LocalTime.now();
-                    ob1.add(Patient_name,Doctor_name,noofconsult,Appointment_no, Diseases,appoint_time);
+                    Appointmentid+=1;
+                    ob1.add(Patient_name,Doctor_name,noofconsult, Diseases,appoint_time,Appointmentid);
                     System.out.println("Do you have  any further registrations : ");
                     System.out.println("Enter 0 for add another patient");
                     System.out.println("Enter 1 to complete");
@@ -107,7 +112,7 @@ public class Project {
                 ReadDoctor.read();
                 int control_input = 0;
                 Doctor ob1 = new Doctor();
-                int Doctoridt=ReadDoctor.Doctors.size()-6;
+                int Doctoridt=ReadDoctor.Doctors.size()-7;
                 String Doctoridl=(String)ReadDoctor.Doctors.get(Doctoridt);
                 int Doctorid=Integer.parseInt(Doctoridl);
                 while (control_input != 1) {
@@ -169,18 +174,17 @@ public class Project {
             case 6:
             {
                 ReadAppointment.read();
-                int x=ReadAppointment.Apponitments.size();
+                int x=ReadAppointment.Appointments.size();
                 for(int i=0;i<x;i+=6)
                 {
-                    System.out.println("Appointment No. :"+(i+1));
-                    System.out.println("Patient Name: "+ReadAppointment.Apponitments.get(i));
-                    System.out.println("Doctor Name: "+ReadAppointment.Apponitments.get(i+1));
-                    System.out.println("No of Consultations: "+ReadAppointment.Apponitments.get(i+2));
-                    System.out.println("Appointment Number: "+ReadAppointment.Apponitments.get(i+3));
-                    System.out.println("Disease: "+ReadAppointment.Apponitments.get(i+4));
-                    System.out.println("Appointment time: "+ReadAppointment.Apponitments.get(i+5));
+                    System.out.println("Appointment No. :"+ReadAppointment.Appointments.get(i));
+                    System.out.println("Patient Name: "+ReadAppointment.Appointments.get(i+1));
+                    System.out.println("Doctor Name: "+ReadAppointment.Appointments.get(i+2));
+                    System.out.println("No of Consultations: "+ReadAppointment.Appointments.get(i+3));
+                    //System.out.println("Appointment Number: "+ReadAppointment.Appointments.get(i+4));
+                    System.out.println("Disease: "+ReadAppointment.Appointments.get(i+4));
+                    System.out.println("Appointment time: "+ReadAppointment.Appointments.get(i+5));
                     System.out.println("----------------------------------------------------------");
-
                 }
                 break;
             }

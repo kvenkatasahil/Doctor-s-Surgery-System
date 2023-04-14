@@ -19,4 +19,5 @@ public class ReadDoctor {
             Doctors.add(random);
         }
     }
+
 }

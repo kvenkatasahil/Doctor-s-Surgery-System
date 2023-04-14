@@ -53,5 +53,4 @@ public class Patient {
             throw new RuntimeException(e);
         }
     }
-
 }

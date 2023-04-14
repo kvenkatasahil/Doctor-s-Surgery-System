@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 public class Appointment {
     static ArrayList A1=new ArrayList ();
+    int Appointmentid = 1;
     String Patient_name;
     String Doctor_name;
     String noofconsult;
@@ -14,20 +15,21 @@ public class Appointment {
     String Diseases;
     LocalTime appoint_time;
 
-    public void add(String Patient_name,String Doctor_name,String noofconsult,String Appointment_no, String Diseases,LocalTime appoint_time)
+    public void add(String Patient_name,String Doctor_name,String noofconsult,String Diseases,LocalTime appoint_time,int Appointmentid)
     {
+        this.Appointmentid=Appointmentid;
         this.Patient_name=Patient_name;
         this.Doctor_name=Doctor_name;
         this.noofconsult=noofconsult;
-        this.Appointment_no=Appointment_no;
+        //this.Appointment_no=Appointment_no;
         this.Diseases=Diseases;
         this.appoint_time=appoint_time;
 
-
+        A1.add(Appointmentid);
         A1.add(Patient_name);
         A1.add(Doctor_name);
         A1.add(noofconsult);
-        A1.add(Appointment_no);
+        //A1.add(Appointment_no);
         A1.add(Diseases);
         String x=appoint_time.toString();
         A1.add(x);

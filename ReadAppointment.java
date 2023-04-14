@@ -5,17 +5,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadAppointment {
-    static ArrayList Apponitments=new ArrayList();
+    static ArrayList Appointments=new ArrayList();
     public static void read()throws
             IOException, FileNotFoundException
     {
-        Apponitments.clear();
+        Appointments.clear();
         File ob1=new File("Appointments.txt");
         Scanner sc=new Scanner(ob1);
         while(sc.hasNextLine())
         {
             String random=sc.nextLine();
-            Apponitments.add(random);
+            Appointments.add(random);
         }
     }
+
 }
