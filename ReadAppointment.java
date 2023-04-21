@@ -11,10 +11,10 @@ public class ReadAppointment {
     {
         Appointments.clear();
         File ob1=new File("Appointments.txt");
-        Scanner sc=new Scanner(ob1);
-        while(sc.hasNextLine())
+        Scanner kvs=new Scanner(ob1);
+        while(kvs.hasNextLine())
         {
-            String random=sc.nextLine();
+            String random=kvs.nextLine();
             Appointments.add(random);
         }
     }

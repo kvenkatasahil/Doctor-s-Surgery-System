@@ -12,11 +12,11 @@ public class ReadDoctor {
     {
         Doctors.clear();
         File ob1=new File("Doctors.txt");
-        Scanner sc=new Scanner(ob1);
-        while(sc.hasNextLine())
+        Scanner kvs=new Scanner(ob1);
+        while(kvs.hasNextLine())
         {
-            String random=sc.nextLine();
-            Doctors.add(random);
+            String a=kvs.nextLine();
+            Doctors.add(a);
         }
     }
 

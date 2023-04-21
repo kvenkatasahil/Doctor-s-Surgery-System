@@ -6,34 +6,15 @@ import java.util.ArrayList;
 public class Delete_Appointment {
     static String Appointmentid;
     static String Consult;
-    static ArrayList changeFile=new ArrayList<>();
-    public static void delete()
-    {
-        File x=new File("Appointments.txt");
-
-
-        if (!x.exists()) {
-
-        } else if (!x.isFile()) {
-
-        } else {
-            try {
-                FileWriter fw = new FileWriter(x, false);
-                fw.close();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+    static ArrayList changeFile=new ArrayList();
 
     public static void change(String Appointmentid) throws IOException {
         Delete_Appointment.Appointmentid =Appointmentid;
-        Delete_Appointment.Consult=Consult;
+
         ReadAppointment.read();
         changeFile=ReadAppointment.Appointments;
         int c=0,c1;
-        Delete_Appointment.delete();
+
         for(int i=0;i<changeFile.size();i+=6)
         {
             if(changeFile.get(i).equals(Appointmentid))

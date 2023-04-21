@@ -1,22 +1,19 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReadPatient {
     static ArrayList Patients=new ArrayList();
-    public static void read()throws
+    public static void read() throws
             IOException, FileNotFoundException
     {
         Patients.clear();
         File ob1=new File("Patients.txt");
-        Scanner sc=new Scanner(ob1);
-        while(sc.hasNextLine())
+        Scanner kvs=new Scanner(ob1);
+        while(kvs.hasNextLine())
         {
-            String random=sc.nextLine();
-            Patients.add(random);
+            String a=kvs.nextLine();
+            Patients.add(a);
         }
     }
 

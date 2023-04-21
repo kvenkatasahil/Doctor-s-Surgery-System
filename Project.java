@@ -27,9 +27,9 @@ public class Project {
 
 
         Scanner kvs=new Scanner(System.in);
-        System.out.println("**************************************************");
-        System.out.println("  ---------   WELCOME TO KVS HOSPITAL ------------");
-        System.out.println("**************************************************");   
+        System.out.println("****************************************************************************************************");
+        System.out.println("------------------------------------   WELCOME TO JAVA HOSPITAL -------------------------------------");
+        System.out.println("****************************************************************************************************");
         System.out.println("Enter the 1 to add Patient data");
         System.out.println("Enter the 2 to Book Appointment ");
         System.out.println("Enter the 3 to add Doctor data");
@@ -223,7 +223,7 @@ public class Project {
                 System.out.println("Enter Doctor Id to check");
                 String id = kvs.next();
                 for (int i = 0; i < ReadDoctor.Doctors.size(); i += 6){
-                    if (ReadAppointment.Appointments.get(i).equals(id)) {
+                    if (ReadDoctor.Doctors.get(i).equals(id)) {
                         System.out.println("Doctor Id: " + ReadDoctor.Doctors.get(i));
                         System.out.println("Doctor Name: " + ReadDoctor.Doctors.get(i + 1));
                         System.out.println("Doctor Designation: " + ReadDoctor.Doctors.get(i + 2));
@@ -249,7 +249,7 @@ public class Project {
                 System.out.println("Enter Appointment Number to check the appointment");
                 String id = kvs.next();
                 for (int i = 0; i < ReadAppointment.Appointments.size(); i += 6) {
-                    if (ReadAppointment.Appointments.get(i).equals(id)) {
+                    if (ReadAppointment.Appointments.get(i).equals(id)==true) {
                         System.out.println("Appointment No. :" + ReadAppointment.Appointments.get(i));
                         System.out.println("Patient Name: " + ReadAppointment.Appointments.get(i + 1));
                         System.out.println("Doctor Name: " + ReadAppointment.Appointments.get(i + 2));
